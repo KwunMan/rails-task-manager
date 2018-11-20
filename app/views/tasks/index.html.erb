@@ -1,0 +1,17 @@
+<h1>Tasks</h1>
+<form>
+  <ul class="form-check list-unstyled">
+    <% @tasks.each do |task| %>
+      <li>
+        <% if task.completed %>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+          <label><%= link_to task.title, task_path(task) %></label>
+        <% else %>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label><%= link_to task.title, task_path(task) %></label>
+        <% end %>
+        <%= link_to "Remove task", task_path(task), method: :delete %>
+      </li>
+    <% end %>
+  </form>
+</form>
